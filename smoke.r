@@ -16,3 +16,5 @@ barplot(smoke_pop_percentage, main="Smoking Population in 51 States across the U
         cex.names = 0.6, las = 2, ylab = "percentage of smokers",
         col=c(rgb(255,20,147, maxColorValue = 255),rgb(30,144,254, maxColorValue = 255),
         rgb(254,215,0, maxColorValue = 255), rgb(0,254,0, maxColorValue = 255)))
+
+download.file(url )
