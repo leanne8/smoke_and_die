@@ -43,6 +43,11 @@ col_heading <- c("state", "percentage of smokers","lung cancer rate" ,
                  "percentage of lung cancer")
 names(lung_and_smoke_df) <- col_heading
 
+#The state where the highest population with lung cancer
+lung_and_smoke_df$state[which.max(lung_and_smoke_df$`lung cancer rate`)]
+#The state where the lowest population with lung cancer
+lung_and_smoke_df$state[which.min(lung_and_smoke_df$`lung cancer rate`)]
+
 #plot lung cacner in different states
 lung_pop_percentage <- lung_and_smoke_df[ ,4]
 names(lung_pop_percentage) <- lung_and_smoke_df[ , 1]
@@ -52,6 +57,8 @@ barplot(lung_pop_percentage,
         col=c(rgb(255,255,200, maxColorValue = 255),rgb(221,160, 221, maxColorValue = 255),
               rgb(255,250,205, maxColorValue = 255), rgb(230,230,250, maxColorValue = 255)))
 
-
-
+#scratter plot to show the relationship between smokers and lung cancer
+library(ggplot2)
+ggplot(data = lung_and_smoke_df) + geom_point(aes(x = names(smoke_pop_percentage), y = lung_and_smoke_df$`percentage of smokers`)) +
+                                  geom_line(aes(x = names(smoke_pop_percentage), y = lung_and_smoke_df$`percentage of smokers`))
 
