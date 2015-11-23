@@ -97,18 +97,19 @@ ggplot(smoke_cancer_df) +
   
 # We see that in general, states with higher percentage of smokers have greater number of lung cancer patients
 
-
 download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/lung_cancer_male.txt",
               destfile = "lung_cancer_male.csv")
-male_df <- read.csv("lung_cancer_male.csv", header = TRUE, sep = "\t")
+male_df <- read.csv("lung_cancer_male.csv", header = TRUE, sep = "\t", 
+                    col.names = c("X", "age", "all", "white", "black", "asian", 
+                                 "native_american", "hispanic"))
 male_df[ , 1] <- NULL
 
 download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/lung_cacner_%20female.txt",
               destfile = "lung_cancer_female.csv")
-female_df <- read.csv("lung_cancer_female.csv", header = TRUE, sep = "\t")
+female_df <- read.csv("lung_cancer_female.csv", header = TRUE, sep = "\t",
+                      col.names = c("X", "age", "all", "white", "black", "asian", 
+                                    "native_american", "hispanic"))
 female_df[ , 1] <- NULL
 
 male_df[male_df == "~"] <- NA
 female_df[female_df == "~"] <- NA
-
-
