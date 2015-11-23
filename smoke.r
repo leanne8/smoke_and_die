@@ -110,3 +110,5 @@ female_df[ , 1] <- NULL
 
 male_df[male_df == "~"] <- NA
 female_df[female_df == "~"] <- NA
+
+
