@@ -97,4 +97,6 @@ ggplot(smoke_cancer_df) +
   
 # We see that in general, states with higher percentage of smokers have greater number of lung cancer patients
 
-
+male = read.delim("lung_cancer_male.txt")
+write.table(male, file="lung_cancer_male.csv",sep=",",col.names=TRUE,row.names=FALSE)
+male_df <- read.csv("lung_cancer_male.csv", header = TRUE, sep = ",")
