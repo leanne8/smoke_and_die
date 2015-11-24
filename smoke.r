@@ -103,14 +103,14 @@ ggplot(smoke_cancer_df) +
 download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/lung_cancer_male.txt",
               destfile = "lung_cancer_male.csv")
 male_df <- read.csv("lung_cancer_male.csv", header = TRUE, sep = "\t", 
-                    col.names = c("X", "age", "all", "white", "black", "asian", 
+                    col.names = c("X", "male_age", "all", "white", "black", "asian", 
                                  "native_american", "hispanic"), stringsAsFactors = FALSE)
 male_df[ , 1] <- NULL
 
 download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/lung_cacner_%20female.txt",
               destfile = "lung_cancer_female.csv")
 female_df <- read.csv("lung_cancer_female.csv", header = TRUE, sep = "\t",
-                      col.names = c("X", "age", "all", "white", "black", "asian", 
+                      col.names = c("X", "female_age", "all", "white", "black", "asian", 
                                     "native_american", "hispanic"), stringsAsFactors = FALSE)
 female_df[ , 1] <- NULL
 
@@ -149,3 +149,13 @@ legend("topright",
        title = "Race",
        legend = c("white", "black", "native american", "asian", "hispanic"), 
        fill = c("#FFFFFF", "#000000", "#984126", "#FFFF00", "#E5A470"))
+
+
+#Do older people have a higher chance of getting lung cancer?
+both_gender_df <- cbind(male_df, female_df)
+both_gender_df <- both_gender_df[-c(1:5), ]
+ggplot (both_gender_df, aes(x = both_gender_df$male_age)) +
+  geom_bar(x = both_gender_df$male_age, y = male_df$all, position = "stack") +
+  geom_bar(x = both_gender_df$male_age, y = female_df$all, position = "stack") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
