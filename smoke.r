@@ -10,12 +10,12 @@
 # Data on smoker population in percentage
 library(readr)
 library(ggplot2)
-download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/smoking%20population%20in%20diff%20states.csv", 
+download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/smoke_df.csv", 
               destfile = "smoke_df.csv")
 smoke_df <- read.csv(file = "smoke_df.csv", header = TRUE, stringsAsFactors = FALSE)
 
 # Data on lung cancer patients
-download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/lung_map_incidence.csv",
+download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/lung_cancer_df.csv",
               destfile = "lung_cancer_df.csv")
 lung_cancer_df <- read.csv(file = "lung_cancer_df.csv", header = TRUE, stringsAsFactors = FALSE)
 
@@ -161,4 +161,5 @@ ggplot (both_gender_df) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
   xlab("Age") + ylab("Number of patients with lung cancer per 100,000") +
   ggtitle("Do older people have a high schance of getting lung cancer?")
+
 
