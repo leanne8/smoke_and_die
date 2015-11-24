@@ -4,7 +4,7 @@
 # By: Leanne Lee and Tony Son
 # =====================================
 
-# We first look at the population of cigarette smokers and those diagnosed with lung cancer in each state. 
+## We first look at the population of cigarette smokers and those diagnosed with lung cancer in each state. 
 
 # Downloading the necessary data
 # Data on smoker population in percentage
@@ -97,19 +97,55 @@ ggplot(smoke_cancer_df) +
   
 # We see that in general, states with higher percentage of smokers have greater number of lung cancer patients
 
+## Secondly, we look at the relationship between lung cancer and one's race as well as gender 
+
+# Downloading necessary files
 download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/lung_cancer_male.txt",
               destfile = "lung_cancer_male.csv")
 male_df <- read.csv("lung_cancer_male.csv", header = TRUE, sep = "\t", 
                     col.names = c("X", "age", "all", "white", "black", "asian", 
-                                 "native_american", "hispanic"))
+                                 "native_american", "hispanic"), stringsAsFactors = FALSE)
 male_df[ , 1] <- NULL
 
 download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/lung_cacner_%20female.txt",
               destfile = "lung_cancer_female.csv")
 female_df <- read.csv("lung_cancer_female.csv", header = TRUE, sep = "\t",
                       col.names = c("X", "age", "all", "white", "black", "asian", 
-                                    "native_american", "hispanic"))
+                                    "native_american", "hispanic"), stringsAsFactors = FALSE)
 female_df[ , 1] <- NULL
 
+# assigning NA to values that are not available in the data frames
 male_df[male_df == "~"] <- NA
 female_df[female_df == "~"] <- NA
+
+# changing the values in the data frames into numbers
+for (i in 2:length(colnames(male_df))) {
+  male_df[ , i] <- as.numeric(male_df[ , i])
+  female_df[ , i] <- as.numeric(female_df[ , i])
+}
+
+# comparing rate of lung cancer in patients over 50 years old by gender
+male_fifty_df <- male_df[12:19, ]
+
+total_rate_male <- c()
+for (i in 1:5){
+  total_rate_male[i] <- round(sum(male_fifty_df[ , (i+2)]) / 8, digit = 1)  
+}
+names(total_rate_male) <- colnames(male_fifty_df)[3:7]
+
+female_fortyfive_df <- female_df[11:19, ]
+
+total_rate_female <- c()
+for (i in 1:5) {
+  total_rate_female[i] <- round(sum(female_fortyfive_df[ , (i+2)]) / 9, digit = 1)
+}
+names(total_rate_female) <- colnames(female_fortyfive_df)[3:7]
+
+# visual representation of the rate of lung cancer patients by race and gender
+total_rate_combined <- cbind("Male" = total_rate_male, "Female" = total_rate_female)
+barplot(total_rate_combined, col = c("#FFFFFF", "#000000", "#984126", "#FFFF00", "#E5A470"), 
+        main = "Lung Cancer Patients by Race", ylab = "frequency per 100,000", beside = TRUE)
+legend("topright", 
+       title = "Race",
+       legend = c("white", "black", "native american", "asian", "hispanic"), 
+       fill = c("#FFFFFF", "#000000", "#984126", "#FFFF00", "#E5A470"))
