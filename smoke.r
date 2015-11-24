@@ -150,12 +150,15 @@ legend("topright",
        legend = c("white", "black", "native american", "asian", "hispanic"), 
        fill = c("#FFFFFF", "#000000", "#984126", "#FFFF00", "#E5A470"))
 
-
-#Do older people have a higher chance of getting lung cancer?
+#visual representation of the rate of lung cancer patients by ages
 both_gender_df <- cbind(male_df, female_df)
 both_gender_df <- both_gender_df[-c(1:5), ]
 ggplot (both_gender_df) +
-  geom_bar(aes(x = both_gender_df$male_age, y = both_gender_df$male_all)) +
-  geom_bar(aes(x = both_gender_df$male_age, y = both_gender_df$female_all)) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  geom_bar(aes(x = both_gender_df$male_age, y = both_gender_df$male_all), 
+           stat = "identity", col= "#0033CC") +
+  geom_bar(aes(x = both_gender_df$female_age, y = both_gender_df$female_all), 
+           stat = "identity", col= "#FF6699") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
+  xlab("Age") + ylab("Number of patients with lung cancer per 100,000") +
+  ggtitle("Do older people have a high schance of getting lung cancer?")
 
