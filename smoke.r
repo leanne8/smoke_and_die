@@ -69,7 +69,7 @@ smoke_cancer_df$state[which.min(smoke_cancer_df$`lung cancer patients(%)`)]
 # visual representation of the percentage of smokers in each state
 smoker_perc <- smoke_cancer_df$`cigarette smokers(%)`
 names(smoker_perc) <- smoke_df[ , 1]
-barplot(smoker_perc, main = "Smoking Population in 51 States across the United States", 
+barplot(sort(smoker_perc), main = "Smoking Population in 51 States across the United States", 
         cex.names = 0.6, las = 2, ylab = "percentage of smokers",
         col=c(rgb(255,20,147, maxColorValue = 255),rgb(30,144,254, maxColorValue = 255),
               rgb(254,215,0, maxColorValue = 255), rgb(0,254,0, maxColorValue = 255)))
@@ -77,7 +77,7 @@ barplot(smoker_perc, main = "Smoking Population in 51 States across the United S
 # visual representation of the percentage of people with lung cancer in each state
 lung_cancer_perc <- smoke_cancer_df$`lung cancer patients(%)`
 names(lung_cancer_perc) <- smoke_df[ , 1]
-barplot(lung_cancer_perc, 
+barplot(sort(lung_cancer_perc), 
         main = "Lung Cancer Patients in 51 States across the United States", 
         cex.names = 0.6, las = 2, ylab = "percentage of smokers",
         col=c(rgb(255,255,200, maxColorValue = 255),rgb(221,160, 221, maxColorValue = 255),
@@ -150,7 +150,7 @@ legend("topright",
        legend = c("white", "black", "native american", "asian", "hispanic"), 
        fill = c("#FFFFFF", "#000000", "#984126", "#FFFF00", "#E5A470"))
 
-#visual representation of the rate of lung cancer patients by ages
+# visual representation of the rate of lung cancer patients by ages
 both_gender_df <- cbind(male_df, female_df)
 both_gender_df <- both_gender_df[-c(1:5), ]
 ggplot (both_gender_df) +
