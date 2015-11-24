@@ -159,4 +159,7 @@ ggplot (both_gender_df) +
   xlab("Age") + ylab("Number of patients with lung cancer per 100,000") +
   ggtitle("Do older people have a high schance of getting lung cancer?")
 
+
+
+
 ```
