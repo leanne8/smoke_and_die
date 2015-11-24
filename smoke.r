@@ -94,8 +94,22 @@ ggplot(smoke_cancer_df) +
   theme(legend.position = "top") +
   xlab("States in the US") +
   ylab("")
-  
+
+# Linear Model (Regression Line): smoking population vs lung cancer patients
+plot(smoke_cancer_df$`cigarette smokers(%)`, smoke_cancer_df$`lung cancer patients(%)`, 
+     pch = 16, cex = 1.3, col = "#063BB6", main = "cigartte smoking population -vs- lung cancer patients", las = 2, 
+     xlab = "number of cigarrete smokers per 100,000", ylab = "number of lung cancer patients per 100,000")
+
+smoke_cancer_fit <- lm(smoke_cancer_df$`lung cancer patients(%)` ~ smoke_cancer_df$`cigarette smokers(%)`)
+
+smoke_cancer_fit
+
+abline(smoke_cancer_fit, col = "#FF0000", lwd = 2)
+
+
 # We see that in general, states with higher percentage of smokers have greater number of lung cancer patients
+
+
 
 ## Secondly, we look at the relationship between lung cancer and one's race as well as gender 
 
@@ -161,5 +175,4 @@ ggplot (both_gender_df) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
   xlab("Age") + ylab("Number of patients with lung cancer per 100,000") +
   ggtitle("Do older people have a high schance of getting lung cancer?")
-
 
