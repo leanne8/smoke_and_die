@@ -10,13 +10,19 @@
 # Data on smoker population in percentage
 library(readr)
 library(ggplot2)
-download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/smoke_df.csv", 
+
+#### Include this in the code but do not run it!
+download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/rawdata/smoke_df.csv", 
               destfile = "../rawdata/smoke_df.csv")
+
 smoke_df <- read.csv(file = "../rawdata/smoke_df.csv", header = TRUE, stringsAsFactors = FALSE)
 
 # Data on lung cancer patients
-download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/lung_cancer_df.csv",
+
+#### Include this in the code but do not run it!
+download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/rawdata/lung_cancer_df.csv",
               destfile = "../rawdata/lung_cancer_df.csv")
+
 lung_cancer_df <- read.csv(file = "../rawdata/lung_cancer_df.csv", header = TRUE, stringsAsFactors = FALSE)
 
 # Extracting only the necessary data from 'smoke_df' data frame
@@ -110,15 +116,20 @@ abline(smoke_cancer_fit, col = "#FF0000", lwd = 2)
 ## In addition, we look at the relationship between lung cancer and one's age with gender.
 
 # Downloading necessary files
-download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/lung_cancer_male.txt",
+
+#### Include this in the code but do not run it!  
+download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/rawdata/lung_cancer_male.txt",
               destfile = "../rawdata/lung_cancer_male.csv")
+
 male_df <- read.csv("../rawdata/lung_cancer_male.csv", header = TRUE, sep = "\t", 
                     col.names = c("X", "male_age", "male_all", "white", "black", "asian", 
                                  "native_american", "hispanic"), stringsAsFactors = FALSE)
 male_df[ , 1] <- NULL
 
-download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/lung_cacner_%20female.txt",
+#### Include this in the code but do not run it!
+download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/rawdata/lung_cacner_%20female.txt",
               destfile = "../rawdata/lung_cancer_female.csv")
+
 female_df <- read.csv("../rawdata/lung_cancer_female.csv", header = TRUE, sep = "\t",
                       col.names = c("X", "female_age", "female_all", "white", "black", "asian", 
                                     "native_american", "hispanic"), stringsAsFactors = FALSE)
