@@ -134,6 +134,7 @@ for (i in 2:length(colnames(male_df))) {
   female_df[ , i] <- as.numeric(female_df[ , i])
 }
 
+
 # Comparing rate of lung cancer in patients over 50 years old by gender
 male_fifty_df <- male_df[12:19, ]
 
