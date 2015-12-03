@@ -12,12 +12,12 @@ library(readr)
 library(ggplot2)
 download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/smoke_df.csv", 
               destfile = "../rawdata/smoke_df.csv")
-smoke_df <- read.csv(file = "smoke_df.csv", header = TRUE, stringsAsFactors = FALSE)
+smoke_df <- read.csv(file = "../rawdata/smoke_df.csv", header = TRUE, stringsAsFactors = FALSE)
 
 # Data on lung cancer patients
 download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/lung_cancer_df.csv",
-              destfile = "./rawdata/lung_cancer_df.csv")
-lung_cancer_df <- read.csv(file = "lung_cancer_df.csv", header = TRUE, stringsAsFactors = FALSE)
+              destfile = "../rawdata/lung_cancer_df.csv")
+lung_cancer_df <- read.csv(file = "../rawdata/lung_cancer_df.csv", header = TRUE, stringsAsFactors = FALSE)
 
 # Extracting only the necessary data from 'smoke_df' data frame
 smoke_df <- smoke_df[ , c(1, 2)]
@@ -111,15 +111,15 @@ abline(smoke_cancer_fit, col = "#FF0000", lwd = 2)
 
 # Downloading necessary files
 download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/lung_cancer_male.txt",
-              destfile = "./rawdata/lung_cancer_male.csv")
-male_df <- read.csv("lung_cancer_male.csv", header = TRUE, sep = "\t", 
+              destfile = "../rawdata/lung_cancer_male.csv")
+male_df <- read.csv("../rawdata/lung_cancer_male.csv", header = TRUE, sep = "\t", 
                     col.names = c("X", "male_age", "male_all", "white", "black", "asian", 
                                  "native_american", "hispanic"), stringsAsFactors = FALSE)
 male_df[ , 1] <- NULL
 
 download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/lung_cacner_%20female.txt",
-              destfile = "./rawdata/lung_cancer_female.csv")
-female_df <- read.csv("lung_cancer_female.csv", header = TRUE, sep = "\t",
+              destfile = "../rawdata/lung_cancer_female.csv")
+female_df <- read.csv("../rawdata/lung_cancer_female.csv", header = TRUE, sep = "\t",
                       col.names = c("X", "female_age", "female_all", "white", "black", "asian", 
                                     "native_american", "hispanic"), stringsAsFactors = FALSE)
 female_df[ , 1] <- NULL
@@ -171,5 +171,3 @@ ggplot (both_gender_df) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
   xlab("Age") + ylab("Number of patients with lung cancer per 100,000") +
   ggtitle("Do older people have a high schance of getting lung cancer?")
-
-# Probability of having a lung cancer based on the factors explored so far. 
