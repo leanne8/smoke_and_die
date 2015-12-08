@@ -1,0 +1,8 @@
+---
+title: "smoke_and_die"
+author: "Leanne Lee, Yeonghwan Son (Tony)"
+date: "December 7, 2015"
+output: pdf_document
+---
+
+

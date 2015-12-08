@@ -1,9 +1,3 @@
-# =====================================
-# Stat 133 Final Project
-# Project: Smoke and Die
-# By: Leanne Lee and Tony Son
-# =====================================
-
 ## We first look at the population of cigarette smokers and those diagnosed with lung cancer in each state. 
 
 # Downloading the necessary data
@@ -145,7 +139,6 @@ for (i in 2:length(colnames(male_df))) {
   female_df[ , i] <- as.numeric(female_df[ , i])
 }
 
-
 # Comparing rate of lung cancer in patients over 50 years old by gender
 male_fifty_df <- male_df[12:19, ]
 
@@ -183,3 +176,10 @@ ggplot (both_gender_df) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
   xlab("Age") + ylab("Number of patients with lung cancer per 100,000") +
   ggtitle("Do older people have a high schance of getting lung cancer?")
+
+# Creating clean data table from the raw data table
+write.table(smoke_df, file = "../data/smoke_cdf.csv", sep = ",", row.names = FALSE, col.names = TRUE)
+write.table(lung_cancer_df, file = "../data/lung_cancer_cdf.csv", sep = ",", row.names = FALSE, col.names = TRUE)
+write.table(smoke_cancer_df, file = "../data/smoke_cancer_cdf.csv", row.names = FALSE, col.names = TRUE, sep = ",")
+write.table(male_df, file = "../data/male_cdf.csv", row.names = FALSE, col.names = TRUE, sep = ",")
+write.table(female_df, file = "../data/female_cdf.csv", row.names = FALSE, col.names = TRUE, sep = ",")
