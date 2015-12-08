@@ -1,4 +1,4 @@
-"state","cigarette smokers(%)","lung cancer patients(%)"
+"state","smokers...","cancer..."
 "Alabama",21.5,0.0696
 "Alaska",22.6,0.0572
 "Arizona",16.3,0.0494
@@ -27,7 +27,7 @@
 "Missouri",22.1,0.0751
 "Montana",19,0.0532
 "Nebraska",18.5,0.0591
-"Nevada",19.4,0.0627
+"Nevada",19.4,NA
 "New Hampshire",16.2,0.064
 "New Jersey",15.7,0.0563
 "New Mexico",19.1,0.0406

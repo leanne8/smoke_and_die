@@ -11,3 +11,57 @@ library(readr)
 library(ggplot2)
 read_chunk("smoke.R")
 ```
+
+```{r chunk1}
+```
+
+```{r chunk2}
+```
+
+```{r chunk3}
+```
+
+```{r chunk4}
+```
+
+```{r chunk5}
+```
+
+```{r chunk6}
+```
+
+```{r chunk7}
+```
+
+```{r chunk8}
+```
+
+```{r chunk9}
+```
+
+```{r chunk10}
+```
+
+```{r chunk11}
+```
+
+```{r chunk12}
+```
+
+```{r chunk13}
+```
+
+```{r chunk14}
+```
+
+```{r chunk15}
+```
+
+```{r chunk16}
+```
+
+```{r chunk17}
+```
+
+```{r chunk18}
+```
