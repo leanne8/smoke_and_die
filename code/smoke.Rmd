@@ -5,4 +5,9 @@ date: "December 7, 2015"
 output: pdf_document
 ---
 
-
+```{r echo = FALSE}
+library(knitr)
+library(readr)
+library(ggplot2)
+read_chunk("smoke.R")
+```

@@ -1,3 +1,105 @@
+## ---- chunk1 ----
+download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/rawdata/smoke_df.csv", 
+              destfile = "../rawdata/smoke_df.csv")
+
+download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/rawdata/lung_cancer_df.csv",
+              destfile = "../rawdata/lung_cancer_df.csv")
+
+## ---- chunk2 ----
+smoke_df <- read.csv(file = "../rawdata/smoke_df.csv", header = TRUE, stringsAsFactors = FALSE)
+lung_cancer_df <- read.csv(file = "../rawdata/lung_cancer_df.csv", header = TRUE, stringsAsFactors = FALSE)
+
+smoke_df <- smoke_df[ , c(1, 2)]
+colnames(smoke_df) <- c("state", "cigarette smokers(%)")
+
+lung_cancer_df <- lung_cancer_df[ , c(1, 3)]
+colnames(lung_cancer_df) <- c("state", "lung cancer patients(per 100,000)")
+lung_cancer_df[ , 2] <- as.numeric(lung_cancer_df[ , 2])
+lung_cancer_df[lung_cancer_df$state == "NV", 2] <- round((1683/2685000) * 100000, digits = 1)
+lung_cancer_df[ , 2] <- lung_cancer_df[ , 2] / 1000
+colnames(lung_cancer_df) <- c("state", "lung cancer patients(%)")
+
+write.table(smoke_df, file = "../data/smoke_cdf.csv", sep = ",", row.names = FALSE, col.names = TRUE)
+write.table(lung_cancer_df, file = "../data/lung_cancer_cdf.csv", sep = ",", row.names = FALSE, col.names = TRUE)
+
+## ---- chunk3 ----
+smoke_cdf <- read.csv(file = "../data/smoke_cdf.csv", header = TRUE, stringsAsFactors = FALSE)
+str(smoke_df)
+summary(smoke_df)
+head(smoke_df)
+tail(smoke_df)
+
+## ---- chunk4 ----
+lung_cancer_cdf <- read.csv(file = "../data/lung_cancer_cdf.csv", header = TRUE, stringsAsFactors = FALSE)
+str(lung_cancer_df)
+summary(lung_cancer_df)
+head(lung_cancer_df)
+tail(lung_cancer_df)
+
+## ---- chunk5 ----
+smoke_cancer_df <- cbind(smoke_cdf, lung_cancer_cdf)
+smoke_cancer_df[ , 3] <- NULL 
+
+## ---- chunk6 ----
+smoke_cancer_df$state[which.max(smoke_cancer_df$`cigarette smokers(%)`)]
+
+## ---- chunk7 ----
+smoke_cancer_df$state[which.min(smoke_cancer_df$`cigarette smokers(%)`)]
+
+## ---- chunk8 ----
+smoke_cancer_df$state[which.max(smoke_cancer_df$`lung cancer patients(%)`)]
+
+## ---- chunk9 ----
+smoke_cancer_df$state[which.min(smoke_cancer_df$`lung cancer patients(%)`)]
+
+## ---- chunk10 ----
+smoker_perc <- smoke_cancer_df$`cigarette smokers(%)`
+names(smoker_perc) <- smoke_df[ , 1]
+barplot(sort(smoker_perc), main = "Smoker Population in USA by State", 
+        cex.names = 0.6, las = 2, ylab = "percentage of smokers",
+        col=c(rgb(255,20,147, maxColorValue = 255),rgb(30,144,254, maxColorValue = 255),
+              rgb(254,215,0, maxColorValue = 255), rgb(0,254,0, maxColorValue = 255)))
+
+## ---- chunk11 ----
+lung_cancer_perc <- smoke_cancer_df$`lung cancer patients(%)`
+names(lung_cancer_perc) <- smoke_df[ , 1]
+barplot(sort(lung_cancer_perc), 
+        main = "Lung Cancer Patients in USA by State", 
+        cex.names = 0.6, las = 2, ylab = "percentage of smokers",
+        col=c(rgb(255,255,200, maxColorValue = 255),rgb(221,160, 221, maxColorValue = 255),
+              rgb(255,250,205, maxColorValue = 255), rgb(230,230,250, maxColorValue = 255)))
+
+## ---- chunk12 ----
+ggplot(smoke_cancer_df) +
+  geom_point(aes(x = names(smoker_perc), y = smoke_cancer_df$`cigarette smokers(%)`, col = "red")) +
+  geom_line(aes(x = names(smoker_perc), y = smoke_cancer_df$`cigarette smokers(%)`, col = "red", group = 1)) +
+  geom_point(aes(x = names(smoker_perc), y = smoke_cancer_df$`lung cancer patients(%)` * 1000, col = "green")) +
+  geom_line(aes(x = names(smoker_perc), y = smoke_cancer_df$`lung cancer patients(%)` * 1000, col = "green", group = 2)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  scale_color_manual(values = c("#AA3939", "#73DB1D"), name = "type", labels = c("percentage of smokers", "number of lung cancer patients per 100000")) +
+  theme(legend.position = "top") +
+  xlab("States in the US") +
+  ylab("")
+
+## ---- chunk13 ----
+smoke_cancer_fit <- lm(smoke_cancer_df$`lung cancer patients(%)` ~ smoke_cancer_df$`cigarette smokers(%)`)
+smoke_cancer_fit
+
+plot(smoke_cancer_df$`cigarette smokers(%)`, smoke_cancer_df$`lung cancer patients(%)`, 
+     pch = 16, cex = 1.3, col = "#063BB6",
+     main = "cigartte smoking population -vs- lung cancer patients", las = 2, 
+     xlab = "number of cigarrete smokers per 100,000", ylab = "number of lung cancer patients per 100,000")
+abline(smoke_cancer_fit, col = "#FF0000", lwd = 2)
+
+## ---- chunk14 ----
+download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/rawdata/lung_cancer_male.txt",
+              destfile = "../rawdata/lung_cancer_male.csv")
+
+download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/master/rawdata/lung_cacner_%20female.txt",
+              destfile = "../rawdata/lung_cancer_female.csv")
+
+## ---- chunk15 ----
+
 ## We first look at the population of cigarette smokers and those diagnosed with lung cancer in each state. 
 
 # Downloading the necessary data
@@ -68,7 +170,7 @@ smoke_cancer_df$state[which.min(smoke_cancer_df$`lung cancer patients(%)`)]
 # Visual representation of the percentage of smokers in each state
 smoker_perc <- smoke_cancer_df$`cigarette smokers(%)`
 names(smoker_perc) <- smoke_df[ , 1]
-barplot(sort(smoker_perc), main = "Smoking Population in 51 States across the United States", 
+barplot(sort(smoker_perc), main = "Smoker Population in USA by State", 
         cex.names = 0.6, las = 2, ylab = "percentage of smokers",
         col=c(rgb(255,20,147, maxColorValue = 255),rgb(30,144,254, maxColorValue = 255),
               rgb(254,215,0, maxColorValue = 255), rgb(0,254,0, maxColorValue = 255)))
@@ -77,7 +179,7 @@ barplot(sort(smoker_perc), main = "Smoking Population in 51 States across the Un
 lung_cancer_perc <- smoke_cancer_df$`lung cancer patients(%)`
 names(lung_cancer_perc) <- smoke_df[ , 1]
 barplot(sort(lung_cancer_perc), 
-        main = "Lung Cancer Patients in 51 States across the United States", 
+        main = "Lung Cancer Patients in USA by State", 
         cex.names = 0.6, las = 2, ylab = "percentage of smokers",
         col=c(rgb(255,255,200, maxColorValue = 255),rgb(221,160, 221, maxColorValue = 255),
               rgb(255,250,205, maxColorValue = 255), rgb(230,230,250, maxColorValue = 255)))
@@ -163,7 +265,7 @@ barplot(total_rate_combined, col = c("#FFFFFF", "#000000", "#984126", "#FFFF00",
 legend("topright", 
        title = "Race",
        legend = c("white", "black", "native american", "asian", "hispanic"), 
-       fill = c("#FFFFFF", "#000000", "#984126", "#FFFF00", "#E5A470"))
+       fill = c("#FFFFFF", "#000000", "#984126", "#FFFF00", "#E5A470"), cex = 0.8)
 
 # Visual representation of the rate of lung cancer patients by ages
 both_gender_df <- cbind(male_df, female_df)
@@ -175,11 +277,9 @@ ggplot (both_gender_df) +
            stat = "identity", col= "#FF6699") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
   xlab("Age") + ylab("Number of patients with lung cancer per 100,000") +
-  ggtitle("Do older people have a high schance of getting lung cancer?")
+  ggtitle("Lung Cancer Patients by Age")
 
 # Creating clean data table from the raw data table
-write.table(smoke_df, file = "../data/smoke_cdf.csv", sep = ",", row.names = FALSE, col.names = TRUE)
-write.table(lung_cancer_df, file = "../data/lung_cancer_cdf.csv", sep = ",", row.names = FALSE, col.names = TRUE)
 write.table(smoke_cancer_df, file = "../data/smoke_cancer_cdf.csv", row.names = FALSE, col.names = TRUE, sep = ",")
 write.table(male_df, file = "../data/male_cdf.csv", row.names = FALSE, col.names = TRUE, sep = ",")
 write.table(female_df, file = "../data/female_cdf.csv", row.names = FALSE, col.names = TRUE, sep = ",")
