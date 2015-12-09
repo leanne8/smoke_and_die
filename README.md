@@ -26,3 +26,8 @@ Subdirectories (under .Rproject)
 	             added manually. 
 
 	- report: The 'report' folder contains the final outcome of the project as a .pdf file. 
+
+libraries needed
+	- readr
+	- ggplot2
+	- knitr
