@@ -15,6 +15,8 @@ read_chunk("smoke.R")
 The causal relation between cigarette smoking and lung cancer have been a field of wide interest and extensive research for many existing organizations and individuals. In this particular project, we plan to establish the relationship between cigarette smoking and lung cancer. 
 Furthermore, we look into other factors that could affect one's chance of being diagnozed with lung cancer such as one's age, race and gender.
 
+# Part 1
+
 To begin with, we compare the population of cigarette smokers and the number of lung cancer patients in each of the 51 states in the United States of America.
 
 ## Downloading Raw Data
@@ -22,7 +24,7 @@ To begin with, we compare the population of cigarette smokers and the number of 
 ```
 
 ## Data Cleaning and Preparation
-```{r chunk2}
+```{r chunk2, warning=FALSE}
 ```
 
 ## Basic Clean Data Inspection
@@ -51,10 +53,10 @@ Looking for the state with the lowest percentage of lung cancer patients.
 ```{r chunk8}
 ```
 
-## Visual Analysis Part 1
+## Visual Analysis
 
 The first graph we introduce is a barplot of the percentage of cigarette smoking population in each state. 
-The bars of the plot are arranged in an ascending order of the percentage. 
+The bars of the plot are arranged in an ascending order of the percentage in the y-axis. 
 We observe from the graph, as we have inspected above, Utah has the lowest and West Virginia has the highest percentage of cigrette smoking population. 
 ```{r chunk9}
 ```
@@ -64,42 +66,55 @@ We see that Utah, which had the lowest smoking population percentage, also has t
 ```{r chunk10}
 ```
 
-To compare the two data sets introduced in the two previous graphs, 
+To get a clearer view of the relationship between the percentage of smoking population and the rate of lung cancer patients in each state, we bring the two previous graphs together.
 ```{r chunk11}
 ```
 
-In this linear regression model, we analyzed the correlation 
-between the rate of smoking population with the number of lung 
-cancer patients. It clearly show that there is a positive 
-correction between the two factors.
+As it appears in the above graph, we see that the states with higher percentage of smokers, in general, have higher number of lung cancer patients. This leads us to start to believe that there might be a positive correlation between the two factors.
+
+To check the assumption we made after looking at the previous graph, we plot a linear regression model using the two factors.
 ```{r chunk12}
 ```
 
-## Downloading male and female lung cancer raw data
+From the linear regression plot, we clearly see that there is a positive correlation between the percentage of smoking population and the number of lung cancer patients in each state. 
+
+# Part 2
+
+The habit of smoking cigarettes is not the only factor that contributes to the begetting of lung cancer.
+Now that we have investigated the relationship between smoking cigarettes and lung cancer, we move to look at other different factors that might affect one's chance of getting lung cancer. The factors that we will be looking at are race, age and gender.
+
+## Downloading Raw Data
 ```{r chunk13, eval = FALSE}
 ```
 
-## Data Cleaning and Preparation for lung cancer data
+## Data Cleaning and Preparation
 ```{r chunk14}
 ```
 
-Data preparation for plotting lung cancer rate vs race
 ```{r chunk15}
 ```
 
-## Visual Analysis Part 2 
-
-In this bar chart, it illustrates that the rate of lung cancer patients
-by race. It shows that black male and white female have higher 
-chances of getting lung cancer.
+## Visual Analysis
+Firstly, we look at the factor of one's race and it's role in inducing lung cancer in individuals. 
+The following barchart illustrates the number of lung cancer patients per 100,000 people by race as well as gender.
 ```{r chunk16}
 ```
 
-In this bar chart, it shows relationship between the rate of lung cancer 
-patients by different age groups. The graph not only shows that older people have higher chance of being diagnosed with lung cancer, but also males have higher chance of getting lung cancer than females do. 
+We notice that in general, more men have cancer than women. Also, among men, black men have the highest rate of cancer patients followed by white men, and hispanic males have the lowest rate. The results for women don't seem to greatly differ from those of men. Black and white women have the highest rate of lung cancer patients and women of hispanic race have the lowest rate. 
+
+Lastly, we look at the effect that one's age has on the chance of getting lung cancer across all races combined.
+The barchart below shows the number of lung cancer patients per 100,000 people in the US for each age group on the x-axis.
+The bars with pink boundaries represent the number of women in that age group who are diagnosed with cancer per 100,000 women and
+the bars with blue boundaries represent the number of men in that age group who are diagnosed with cancer per 100,000 men.
+
 ```{r chunk17}
 ```
 
-#Exporting plots as png files
-```{r chunk18, eval = FALSE}
+From the barchart above, we notice that as the age group increases, the number of lung cancer patients, for both men and women, increase as well. In addition, as we have been in the previous graph, more men are diagnosed with lung cancer than women. 
+
+All in all, the data show that the factors such as one's smoking habits, race, age and gender affect his/her chance of getting lung cancer.
+
+```{r chunk18, echo = FALSE, eval = FALSE}
+# Exporting Plots as .png Files
 ```
+

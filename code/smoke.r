@@ -97,11 +97,9 @@ ggplot(smoke_cancer_cdf) +
 
 ## ---- chunk12 ----
 smoke_cancer_fit <- lm(smoke_cancer_cdf$cancer... ~ smoke_cancer_cdf$smokers...)
-smoke_cancer_fit
-
 plot(smoke_cancer_cdf$smokers..., smoke_cancer_cdf$cancer..., 
      pch = 16, cex = 1.3, col = "#063BB6",
-     main = "cigarette smoking population -vs- lung cancer patients", las = 2, 
+     main = "cigarette smoking population -vs- lung cancer patients", las = 1, 
      xlab = "number of cigarrete smokers per 100,000", 
      ylab = "number of lung cancer patients per 100,000")
 abline(smoke_cancer_fit, col = "#FF0000", lwd = 2)
@@ -169,7 +167,7 @@ total_rate_combined <- cbind("Male" = total_rate_male,
                              "Female" = total_rate_female)
 barplot(total_rate_combined, 
         col = c("#FFFFFF", "#000000", "#984126", "#FFFF00", "#E5A470"), 
-        main = "Lung Cancer Patients by Race", 
+        main = "Lung Cancer Patients by Race", las = 1,
         ylab = "frequency per 100,000", beside = TRUE)
 legend("topright", 
        title = "Race",
