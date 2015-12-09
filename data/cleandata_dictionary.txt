@@ -1,0 +1,34 @@
+Variables in Clean Data Files
+
+smoke_cdf.csv (2 variables)
+	- state: This variable contains the names of 51 different states in the USA.
+	- smokers(%): This variable represents the percentage of smoking population in each of the 51 states in the USA.
+
+lung_cancer_cdf.csv (2 variables)
+	- state: This variable contains the names of 51 different states in the USA
+	- cancer(%): This variable denotes the percentage of lung cancer patients in each of the 51 states of the USA.
+
+smoke_cancer_cdf.csv (3 variables - combination of smoke_cdf.csv and lung_cancer_cdf.csv)
+	- state: This variable contains the names of 51 different states in the USA.
+	- smokers(%): This variable represents the percentage of smoking population in each of the 51 states in the USA. 
+	- cancer(%): This variable denotes the percentage of lung cancer patients in each of the 51 states of the USA.
+
+male_cdf.csv (7 variables)
+	- male_age: This varialbe represents different age groups.
+	- male_all: This variable denotes the rate of male lung cancer patients per 100,000 people across all races combined and is categorized by different age groups.
+	- white: This variable shows the rate of white male lung cancer patients per 100,000 people categorized by different age groups.
+	- black: This variable represents the rate of black male lung cancer patients per 100,000 people categorized by different age groups.
+	- asian: This variable denotes the rate of asian male lung cancer patients per 100,000 people categorized by different age groups.
+	- native_american: This variable represents the rate of native indian male lung cancer patients per 100,000 people categorized by different age groups.
+	- hispanic: This variable represents the rate of hispanic male lung cancer patients per 100,000 people categorized by different age groups. 
+
+female_cdf.csv
+	- female_age: This varialbe represents different age groups.
+	- female_all: This variable denotes the rate of female lung cancer patients per 100,000 people across all races combined and is categorized by different age groups.
+	- white: This variable shows the rate of white female lung cancer patients per 100,000 people categorized by different age groups.
+	- black: This variable represents the rate of black female lung cancer patients per 100,000 people categorized by different age groups.
+	- asian: This variable denotes the rate of asian female lung cancer patients per 100,000 people categorized by different age groups.
+	- native_american: This variable represents the rate of native indian female lung cancer patients per 100,000 people categorized by different age groups.
+	- hispanic: This variable represents the rate of hispanic female lung cancer patients per 100,000 people categorized by different age groups. 
+
+* All figures and statistics in the data are based on the samples taken inside the USA

@@ -29,3 +29,5 @@ lung_cancer_female.txt/lung_cancer_female.csv (7 variables)
 	- Asian/Pacific Islander Rate: This variable represents the number of asian lung cancer patients per 100,000 people categorized in different age groups.
 	- American Indian/Alaska Native Rate: This variable represents the number of Native Indian lung cancer patients per 100,000 people by different age groups.
 	- Hispanic Rate: This variable shows the number of Hispanic lung cancer patients per 100,000 people by different age groups.
+
+* All figures and statistics in the data are based on the samples taken inside the USA

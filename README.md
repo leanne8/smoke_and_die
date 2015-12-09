@@ -2,10 +2,12 @@
 
 Title: Smoke and Die 
 Course: Statistics 133
-Authors: Leanne (Yuen Wun) Lee, Yeonghwan Son (Tony)
+Authors: Leanne (Yuen Wan) Lee, Yeonghwan Son (Tony)
 
 Description of the Project:
-Our main objective of the project is to find out, if any, the relationship between lung cancer and smoking cigarettes by looking at past data. We first plan to look at the population of smokers and those who suffer/suffered from lung cancer in each state within the United States. Then we will be taking a step further to determine the effects of one’s age, race, past smoking habits, etc, on the chance of raising lung cancer. 
+The main objective of the project is to find out, if any, the relationship between lung cancer and smoking cigarettes by looking at past data. 
+We first plan to look at the population of smokers and those who suffer/suffered from lung cancer in each state within the United States. 
+Then we will be taking a step further to determine the effects of one’s age, race, past smoking habits, etc, on the chance of raising lung cancer. 
 
 skeleton.R: This R Script file contains codes that create the folders below. 
 

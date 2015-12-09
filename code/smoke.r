@@ -36,16 +36,12 @@ smoke_cdf <- read.csv(file = "../data/smoke_cdf.csv",
                       header = TRUE, stringsAsFactors = FALSE)
 str(smoke_cdf)
 summary(smoke_cdf)
-head(smoke_cdf)
-tail(smoke_cdf)
 
 ## ---- chunk4 ----
 lung_cancer_cdf <- read.csv(file = "../data/lung_cancer_cdf.csv",
                             header = TRUE, stringsAsFactors = FALSE)
 str(lung_cancer_cdf)
 summary(lung_cancer_cdf)
-head(lung_cancer_cdf)
-tail(lung_cancer_cdf)
 
 ## ---- chunk5 ----
 smoke_cancer_cdf <- read.csv(file = "../data/smoke_cancer_cdf.csv",
@@ -94,8 +90,7 @@ ggplot(smoke_cancer_cdf) +
                 y = smoke_cancer_cdf$cancer... * 1000, col = "green", group = 2)) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   scale_color_manual(values = c("#AA3939", "#73DB1D"), name = "type", 
-                     labels = c("lung cancer patients per 100000", 
-                                "percentage of smokers")) +
+                     labels = c("lung cancer patients per 100000", "percentage of smokers")) +
   theme(legend.position = "top") +
   xlab("States in the US") +
   ylab("")
@@ -244,8 +239,7 @@ plot(smoke_cancer_cdf$smokers..., smoke_cancer_cdf$cancer...,
 dev.off()
 
 png(filename = "../images/race.png")
-barplot(total_rate_combined, col = c("#FFFFFF", "#000000", "#984126", "#FFFF00",
-                                     "#E5A470"), 
+barplot(total_rate_combined, col = c("#FFFFFF", "#000000", "#984126", "#FFFF00", "#E5A470"), 
         main = "Lung Cancer Patients by Race", 
         ylab = "frequency per 100,000", beside = TRUE)
 legend("topright", 

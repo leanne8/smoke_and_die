@@ -12,6 +12,11 @@ library(ggplot2)
 read_chunk("smoke.R")
 ```
 
+The causal relation between cigarette smoking and lung cancer have been a field of wide interest and extensive research for many existing organizations and individuals. In this particular project, we plan to establish the relationship between cigarette smoking and lung cancer. 
+Furthermore, we look into other factors that could affect one's chance of being diagnozed with lung cancer such as one's age, race and gender.
+
+To begin with, we compare the population of cigarette smokers and the number of lung cancer patients in each of the 51 states in the United States of America.
+
 ## Downloading Raw Data
 ```{r chunk1, eval = FALSE}
 ```
@@ -21,50 +26,45 @@ read_chunk("smoke.R")
 ```
 
 ## Basic Clean Data Inspection
-Inspection for smoking population
+Looking into the data frame 'smoke_cdf'
 ```{r chunk3}
 ```
 
-Inspection for lung cancer rate
+Inspecting the data frame 'lung_cancer_cdf'
 ```{r chunk4}
 ```
 
-Combine smoking population data frame and lung cancer rate data frame
+Merging the two data frames 'smoke_cdf' and 'lung_cancer_cdf' to obtain 'smoke_cancer_cdf' for future use.
+Then, using 'smoke_cancer_cdf', we look for the state with the highest percentage of cigarette smoking population.
 ```{r chunk5}
 ```
 
-The state with the lowest smoking population rate
+Looking for the state with the lowest percentage of cigarette smoking population.
 ```{r chunk6}
 ```
 
-The state with the highest lung cancer rate
+Looking for the state with the highest percentage of lung cancer patients.
 ```{r chunk7}
 ```
 
-The state with the lowest lung cancer rate
+Looking for the state with the lowest percentage of lung cancer patients.
 ```{r chunk8}
 ```
 
-## Visualization Part 1
+## Visual Analysis Part 1
 
-In the graph of "Smoker Population in USA by State", 
-we ordered the percentage of smokers in ascending order by states.
-It shows that West Virginia has the highest percenatge of smokers
-and Utah has the lowest percentage of smoking across the United States.
+The first graph we introduce is a barplot of the percentage of cigarette smoking population in each state. 
+The bars of the plot are arranged in an ascending order of the percentage. 
+We observe from the graph, as we have inspected above, Utah has the lowest and West Virginia has the highest percentage of cigrette smoking population. 
 ```{r chunk9}
 ```
 
-In the graph of "Lung Cancer Patients in USA by State",
-we ordered the percentage of lung cancer patients in ascending 
-order by states. It shows that Kentucky has the highest lung 
-cancer rate while Utah has teh lowest lung cancer rate.
+Then next graph is a similar barplot as the previous one, but it shows the percentage of lung cancer patients in each state. 
+We see that Utah, which had the lowest smoking population percentage, also has the lowest percentage of lung cancer patients among all the states. Kentucky has has the highest rate of lung cancer patients followed by West Virginia which had the highest cigarette smoking population percentage.
 ```{r chunk10}
 ```
 
-In this graph, we compared the rate of smoking population of each
-state with the rate of lung cancer patients. It shows that the higher
-smoking population in the state lead to a greater number of lung 
-cancer patients.
+To compare the two data sets introduced in the two previous graphs, 
 ```{r chunk11}
 ```
 
@@ -87,7 +87,7 @@ Data preparation for plotting lung cancer rate vs race
 ```{r chunk15}
 ```
 
-## Visualization Part 2 
+## Visual Analysis Part 2 
 
 In this bar chart, it illustrates that the rate of lung cancer patients
 by race. It shows that black male and white female have higher 
@@ -101,5 +101,5 @@ patients by different age groups. The graph not only shows that older people hav
 ```
 
 #Exporting plots as png files
-```{r chunk18}
+```{r chunk18, eval = FALSE}
 ```
