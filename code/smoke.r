@@ -6,8 +6,10 @@ download.file(url = "https://raw.githubusercontent.com/leanne8/smoke_and_die/mas
               destfile = "../rawdata/lung_cancer_df.csv")
 
 ## ---- chunk2 ----
-smoke_df <- read.csv(file = "../rawdata/smoke_df.csv", header = TRUE, stringsAsFactors = FALSE)
-lung_cancer_df <- read.csv(file = "../rawdata/lung_cancer_df.csv", header = TRUE, stringsAsFactors = FALSE)
+smoke_df <- read.csv(file = "../rawdata/smoke_df.csv", 
+                     header = TRUE, stringsAsFactors = FALSE)
+lung_cancer_df <- read.csv(file = "../rawdata/lung_cancer_df.csv", 
+                           header = TRUE, stringsAsFactors = FALSE)
 
 smoke_df <- smoke_df[ , c(1, 2)]
 colnames(smoke_df) <- c("state", "smokers(%)")
@@ -21,26 +23,32 @@ colnames(lung_cancer_df) <- c("state", "cancer(%)")
 smoke_cancer_df <- cbind(smoke_df, lung_cancer_df)
 smoke_cancer_df[ , 3] <- NULL 
 
-write.table(smoke_df, file = "../data/smoke_cdf.csv", sep = ",", row.names = FALSE, col.names = TRUE)
-write.table(lung_cancer_df, file = "../data/lung_cancer_cdf.csv", sep = ",", row.names = FALSE, col.names = TRUE)
-write.table(smoke_cancer_df, file = "../data/smoke_cancer_cdf.csv", row.names = FALSE, col.names = TRUE, sep = ",")
+write.table(smoke_df, file = "../data/smoke_cdf.csv", sep = ",", 
+            row.names = FALSE, col.names = TRUE)
+write.table(lung_cancer_df, file = "../data/lung_cancer_cdf.csv", sep = ",",
+            row.names = FALSE, col.names = TRUE)
+write.table(smoke_cancer_df, file = "../data/smoke_cancer_cdf.csv",
+            row.names = FALSE, col.names = TRUE, sep = ",")
 
 ## ---- chunk3 ----
-smoke_cdf <- read.csv(file = "../data/smoke_cdf.csv", header = TRUE, stringsAsFactors = FALSE)
+smoke_cdf <- read.csv(file = "../data/smoke_cdf.csv", 
+                      header = TRUE, stringsAsFactors = FALSE)
 str(smoke_cdf)
 summary(smoke_cdf)
 head(smoke_cdf)
 tail(smoke_cdf)
 
 ## ---- chunk4 ----
-lung_cancer_cdf <- read.csv(file = "../data/lung_cancer_cdf.csv", header = TRUE, stringsAsFactors = FALSE)
+lung_cancer_cdf <- read.csv(file = "../data/lung_cancer_cdf.csv",
+                            header = TRUE, stringsAsFactors = FALSE)
 str(lung_cancer_cdf)
 summary(lung_cancer_cdf)
 head(lung_cancer_cdf)
 tail(lung_cancer_cdf)
 
 ## ---- chunk5 ----
-smoke_cancer_cdf <- read.csv(file = "../data/smoke_cancer_cdf.csv", header = TRUE, stringsAsFactors = FALSE)
+smoke_cancer_cdf <- read.csv(file = "../data/smoke_cancer_cdf.csv",
+                             header = TRUE, stringsAsFactors = FALSE)
 smoke_cancer_cdf$state[which.max(smoke_cancer_cdf$smokers...)]
 
 ## ---- chunk6 ----
@@ -57,8 +65,10 @@ smoker_perc <- smoke_cancer_cdf$smokers...
 names(smoker_perc) <- smoke_cdf[ , 1]
 barplot(sort(smoker_perc), main = "Smoker Population in USA by State", 
         cex.names = 0.6, las = 2, ylab = "percentage of smokers",
-        col=c(rgb(255,20,147, maxColorValue = 255),rgb(30,144,254, maxColorValue = 255),
-              rgb(254,215,0, maxColorValue = 255), rgb(0,254,0, maxColorValue = 255)))
+        col=c(rgb(255,20,147, maxColorValue = 255),
+              rgb(30,144,254, maxColorValue = 255),
+              rgb(254,215,0, maxColorValue = 255), 
+              rgb(0,254,0, maxColorValue = 255)))
 
 ## ---- chunk10 ----
 lung_cancer_perc <- smoke_cancer_cdf$cancer...
@@ -66,8 +76,10 @@ names(lung_cancer_perc) <- smoke_cdf[ , 1]
 barplot(sort(lung_cancer_perc), 
         main = "Lung Cancer Patients in USA by State", 
         cex.names = 0.6, las = 2, ylab = "percentage of lung cancer patients",
-        col=c(rgb(255,255,200, maxColorValue = 255),rgb(221,160, 221, maxColorValue = 255),
-              rgb(255,250,205, maxColorValue = 255), rgb(230,230,250, maxColorValue = 255)))
+        col=c(rgb(255,255,200, maxColorValue = 255),
+              rgb(221,160, 221, maxColorValue = 255),
+              rgb(255,250,205, maxColorValue = 255),
+              rgb(230,230,250, maxColorValue = 255)))
 
 ## ---- chunk11 ----
 ggplot(smoke_cancer_cdf) +
@@ -117,12 +129,16 @@ for (i in 2:length(colnames(male_df))) {
   female_df[ , i] <- as.numeric(female_df[ , i])
 }
 
-write.table(male_df, file = "../data/male_cdf.csv", row.names = FALSE, col.names = TRUE, sep = ",")
-write.table(female_df, file = "../data/female_cdf.csv", row.names = FALSE, col.names = TRUE, sep = ",")
+write.table(male_df, file = "../data/male_cdf.csv", 
+            row.names = FALSE, col.names = TRUE, sep = ",")
+write.table(female_df, file = "../data/female_cdf.csv", 
+            row.names = FALSE, col.names = TRUE, sep = ",")
 
 ## ---- chunk15 ----
-male_cdf <- read.csv(file = "../data/male_cdf.csv", header = TRUE, stringsAsFactors = FALSE)
-female_cdf <- read.csv(file = "../data/female_cdf.csv", header = TRUE, stringsAsFactors = FALSE)
+male_cdf <- read.csv(file = "../data/male_cdf.csv", 
+                     header = TRUE, stringsAsFactors = FALSE)
+female_cdf <- read.csv(file = "../data/female_cdf.csv", 
+                       header = TRUE, stringsAsFactors = FALSE)
 
 male_fifty_df <- male_cdf[12:19, ]
 
@@ -142,8 +158,10 @@ names(total_rate_female) <- colnames(female_fortyfive_df)[3:7]
 
 ## ---- chunk16 ----
 total_rate_combined <- cbind("Male" = total_rate_male, "Female" = total_rate_female)
-barplot(total_rate_combined, col = c("#FFFFFF", "#000000", "#984126", "#FFFF00", "#E5A470"), 
-        main = "Lung Cancer Patients by Race", ylab = "frequency per 100,000", beside = TRUE)
+barplot(total_rate_combined, 
+        col = c("#FFFFFF", "#000000", "#984126", "#FFFF00", "#E5A470"), 
+        main = "Lung Cancer Patients by Race", 
+        ylab = "frequency per 100,000", beside = TRUE)
 legend("topright", 
        title = "Race",
        legend = c("white", "black", "native american", "asian", "hispanic"), 
