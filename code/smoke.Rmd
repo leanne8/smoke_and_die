@@ -21,24 +21,32 @@ read_chunk("smoke.R")
 ```
 
 ## Basic Clean Data Inspection
+Inspection for smoking population
 ```{r chunk3}
 ```
 
+Inspection for lung cancer rate
 ```{r chunk4}
 ```
 
+Combine smoking population data frame and lung cancer rate data frame
 ```{r chunk5}
 ```
 
+The state with the lowest smoking population rate
 ```{r chunk6}
 ```
 
+The state with the highest lung cancer rate
 ```{r chunk7}
 ```
 
+The state with the lowest lung cancer rate
 ```{r chunk8}
 ```
 
+#Visualization
+In the graph of smoker population in USA by state,
 ```{r chunk9}
 ```
 
@@ -51,20 +59,25 @@ read_chunk("smoke.R")
 ```{r chunk12}
 ```
 
+## Downloading male and female lung cancer raw data
 ```{r chunk13}
 ```
 
+## Data Cleaning and Preparation for lung cancer data
 ```{r chunk14}
 ```
 
+Data preparation for plotting lung cancer rate vs race
 ```{r chunk15}
 ```
 
+## Visualization 
 ```{r chunk16}
 ```
 
 ```{r chunk17}
 ```
 
+#Export the images
 ```{r chunk18}
 ```
