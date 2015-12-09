@@ -13,7 +13,7 @@ read_chunk("smoke.R")
 ```
 
 ## Downloading Raw Data
-```{r chunk1}
+```{r chunk1, eval = FALSE}
 ```
 
 ## Data Cleaning and Preparation
@@ -45,22 +45,38 @@ The state with the lowest lung cancer rate
 ```{r chunk8}
 ```
 
-#Visualization
-In the graph of smoker population in USA by state,
+#Visualization Part 1
+
+In the graph of "Smoker Population in USA by State", 
+we ordered the percentage of smokers in ascending order by states.
+It shows that West Virginia has the highest percenatge of smokers
+and Utah has the lowest percentage of smoking across the United States.
 ```{r chunk9}
 ```
 
+In the graph of "Lung Cancer Patients in USA by State",
+we ordered the percentage of lung cancer patients in ascending 
+order by states. It shows that Kentucky has the highest lung 
+cancer rate while Utah has teh lowest lung cancer rate.
 ```{r chunk10}
 ```
 
+In this graph, we compared the rate of smoking population of each
+state with the rate of lung cancer patients. It shows that the higher
+smoking population in the state lead to a greater number of lung 
+cancer patients.
 ```{r chunk11}
 ```
 
+In this linear regression model, we analyzed the correlation 
+between the rate of smoking population with the number of lung 
+cancer patients. It clearly show that there is a positive 
+correction between the two factors.
 ```{r chunk12}
 ```
 
 ## Downloading male and female lung cancer raw data
-```{r chunk13}
+```{r chunk13, eval = FALSE}
 ```
 
 ## Data Cleaning and Preparation for lung cancer data
@@ -71,13 +87,19 @@ Data preparation for plotting lung cancer rate vs race
 ```{r chunk15}
 ```
 
-## Visualization 
+## Visualization Part 2 
+
+In this bar chart, it illustrates that the rate of lung cancer patients
+by race. It shows that black male and white female have higher 
+chances of getting lung cancer.
 ```{r chunk16}
 ```
 
+In this bar chart, it shows relationship between the rate of lung cancer 
+patients by different age groups. The graph not only shows that older people have higher chance of being diagnosed with lung cancer, but also males have higher chance of getting lung cancer than females do. 
 ```{r chunk17}
 ```
 
-#Export the images
+#Exporting plots as png files
 ```{r chunk18}
 ```

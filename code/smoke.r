@@ -65,7 +65,7 @@ lung_cancer_perc <- smoke_cancer_cdf$cancer...
 names(lung_cancer_perc) <- smoke_cdf[ , 1]
 barplot(sort(lung_cancer_perc), 
         main = "Lung Cancer Patients in USA by State", 
-        cex.names = 0.6, las = 2, ylab = "percentage of smokers",
+        cex.names = 0.6, las = 2, ylab = "percentage of lung cancer patients",
         col=c(rgb(255,255,200, maxColorValue = 255),rgb(221,160, 221, maxColorValue = 255),
               rgb(255,250,205, maxColorValue = 255), rgb(230,230,250, maxColorValue = 255)))
 
@@ -172,7 +172,7 @@ dev.off()
 png(filename = "../images/lungcancer.png")
 barplot(sort(lung_cancer_perc), 
         main = "Lung Cancer Patients in USA by State", 
-        cex.names = 0.6, las = 2, ylab = "percentage of smokers",
+        cex.names = 0.6, las = 2, ylab = "percentage of lung cancer patients",
         col=c(rgb(255,255,200, maxColorValue = 255),rgb(221,160, 221, maxColorValue = 255),
               rgb(255,250,205, maxColorValue = 255), rgb(230,230,250, maxColorValue = 255)))
 dev.off()
