@@ -45,7 +45,7 @@ The state with the lowest lung cancer rate
 ```{r chunk8}
 ```
 
-#Visualization Part 1
+## Visualization Part 1
 
 In the graph of "Smoker Population in USA by State", 
 we ordered the percentage of smokers in ascending order by states.
