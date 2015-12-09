@@ -1,5 +1,5 @@
 ---
-title: "Smoke And Die"
+title: "Smoke and Die"
 author: "Leanne (Yuen Wan) Lee, Yeonghwan Son (Tony)"
 date: "December 7, 2015"
 output: pdf_document

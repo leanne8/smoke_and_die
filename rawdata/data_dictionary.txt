@@ -1,0 +1,31 @@
+Variables in Raw Data Files
+
+smoke_df.csv (4 variables)
+	- LocationDesc: This variable represents the names of 51 states in the United States of America. 
+	- Data_Value: This variable denotes the percentage of smoking population in each state in the USA.
+	- Low_Confidence_Limit: This variable denotes the percentage of smoking population given the low confidence level.
+	- High_Confidence_Limit: This variable represents the percentage of smoking population give the high confidence level.
+	- Sample_Size: This variable represents the sample size chosen to collect the data from on the percentage of smokers in each state of the USA.
+
+lung_cancer_df.csv (3 variables)
+	- State: This variable denotes the names of the 51 states in the USA.
+	- Interval: This variable denotes the range of the number of lung cancer patients per 100,000 according to the confidence interval.
+	- Rate: This variable represents the number of lung cancer patients per 100,000 people in each state of the USA.
+
+lung_cancer_male.txt/lung_cancer_male.csv (7 variables)
+	- Age: This variables represents the age groups to be dealt with. 
+	- All Races Rate: This variable denotes the combined rate of lung cancer patients per 100,000 people across all race groups by different age groups.  
+	- White Rate: This variable shows the number of white lung cancer patients per 100,000 people categorized in different age groups.
+	- Black Rate: This variable represents the number of black lung cancer patients per 100,000 people categorized in different age groups.
+	- Asian/Pacific Islander Rate: This variable represents the number of asian lung cancer patients per 100,000 people categorized in different age groups.
+	- American Indian/Alaska Native Rate: This variable represents the number of Native Indian lung cancer patients per 100,000 people by different age groups.
+	- Hispanic Rate: This variable shows the number of Hispanic lung cancer patients per 100,000 people by different age groups.
+
+lung_cancer_female.txt/lung_cancer_female.csv (7 variables)
+	- Age: This variables represents the age groups to be dealt with. 
+	- All Races Rate: This variable denotes the combined rate of lung cancer patients per 100,000 people across all race groups by different age groups.  
+	- White Rate: This variable shows the number of white lung cancer patients per 100,000 people categorized in different age groups.
+	- Black Rate: This variable represents the number of black lung cancer patients per 100,000 people categorized in different age groups.
+	- Asian/Pacific Islander Rate: This variable represents the number of asian lung cancer patients per 100,000 people categorized in different age groups.
+	- American Indian/Alaska Native Rate: This variable represents the number of Native Indian lung cancer patients per 100,000 people by different age groups.
+	- Hispanic Rate: This variable shows the number of Hispanic lung cancer patients per 100,000 people by different age groups.

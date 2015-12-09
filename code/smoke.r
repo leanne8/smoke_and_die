@@ -21,7 +21,6 @@ lung_cancer_df[lung_cancer_df$state == "NV", 2] <-
   round((1683/2685000) * 100000, digits = 1)
 lung_cancer_df[ , 2] <- lung_cancer_df[ , 2] / 1000
 
-
 smoke_cancer_df <- cbind(smoke_df, lung_cancer_df)
 smoke_cancer_df[ , 3] <- NULL 
 
@@ -65,7 +64,7 @@ smoke_cancer_cdf$state[which.min(smoke_cancer_cdf$cancer...)]
 ## ---- chunk9 ----
 smoker_perc <- smoke_cancer_cdf$smokers...
 names(smoker_perc) <- smoke_cdf[ , 1]
-barplot(sort(smoker_perc), main = "Smoker Population in USA by State", 
+barplot(sort(smoker_perc), main = "Smoker Population in the US by State", 
         cex.names = 0.6, las = 2, ylab = "percentage of smokers",
         col=c(rgb(255,20,147, maxColorValue = 255),
               rgb(30,144,254, maxColorValue = 255),
@@ -76,7 +75,7 @@ barplot(sort(smoker_perc), main = "Smoker Population in USA by State",
 lung_cancer_perc <- smoke_cancer_cdf$cancer...
 names(lung_cancer_perc) <- smoke_cdf[ , 1]
 barplot(sort(lung_cancer_perc), 
-        main = "Lung Cancer Patients in USA by State", 
+        main = "Lung Cancer Patients in the US by State", 
         cex.names = 0.6, las = 2, ylab = "percentage of lung cancer patients",
         col=c(rgb(255,255,200, maxColorValue = 255),
               rgb(221,160, 221, maxColorValue = 255),
@@ -197,7 +196,7 @@ ggplot (both_gender_df) +
 
 ## ---- chunk18 ----
 png(filename = "../images/smokepop.png")
-barplot(sort(smoker_perc), main = "Smoker Population in USA by State", 
+barplot(sort(smoker_perc), main = "Smoker Population in the US by State", 
         cex.names = 0.6, las = 2, ylab = "percentage of smokers",
         col=c(rgb(255,20,147, maxColorValue = 255),
               rgb(30,144,254, maxColorValue = 255),
@@ -207,7 +206,7 @@ dev.off()
 
 png(filename = "../images/lungcancer.png")
 barplot(sort(lung_cancer_perc), 
-        main = "Lung Cancer Patients in USA by State", 
+        main = "Lung Cancer Patients in the US by State", 
         cex.names = 0.6, las = 2, ylab = "percentage of lung cancer patients",
         col=c(rgb(255,255,200, maxColorValue = 255),
               rgb(221,160, 221, maxColorValue = 255),
