@@ -12,12 +12,15 @@ library(ggplot2)
 read_chunk("smoke.R")
 ```
 
+## Downloading Raw Data
 ```{r chunk1}
 ```
 
+## Data Cleaning and Preparation
 ```{r chunk2}
 ```
 
+## Basic Clean Data Inspection
 ```{r chunk3}
 ```
 
@@ -65,7 +68,3 @@ read_chunk("smoke.R")
 
 ```{r chunk18}
 ```
-
-```{r chunk19}
-```
-
