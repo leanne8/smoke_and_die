@@ -14,7 +14,7 @@ read_chunk("../code/download.R")
 read_chunk("../code/cleaning.R")
 ```
 
-The causal relation between cigarette smoking and lung cancer have been a field of wide interest and extensive research for many existing organizations and individuals. In this particular project, we plan to establish the relationship between cigarette smoking and lung cancer. 
+The causal relation between cigarette smoking and lung cancer has been a field of wide interest and extensive research for many organizations and individuals. In this particular project, we plan to establish the relationship between cigarette smoking and lung cancer. 
 Furthermore, we look into other factors that could affect one's chance of being diagnozed with lung cancer such as one's age, race and gender.
 
 # Part 1
@@ -59,22 +59,27 @@ Looking for the state with the lowest percentage of lung cancer patients.
 
 The first graph we introduce is a barplot of the percentage of cigarette smoking population in each state. 
 The bars of the plot are arranged in an ascending order of the percentage in the y-axis. 
-We observe from the graph, as we have inspected above, Utah has the lowest and West Virginia has the highest percentage of cigrette smoking population. 
+
 ```{r chunk9}
 ```
 
+We observe from the graph, as we have inspected above, Utah has the lowest and West Virginia has the highest percentage of cigrette smoking population. 
+
 Then next graph is a similar barplot as the previous one, but it shows the percentage of lung cancer patients in each state. 
-We see that Utah, which had the lowest smoking population percentage, also has the lowest percentage of lung cancer patients among all the states. Kentucky has has the highest rate of lung cancer patients followed by West Virginia which had the highest cigarette smoking population percentage.
+In it, we see that Utah, which had the lowest smoking population percentage, also has the lowest percentage of lung cancer patients among all the states. Kentucky has has the highest rate of lung cancer patients followed by West Virginia which had the highest cigarette smoking population percentage.
+
 ```{r chunk10}
 ```
 
 To get a clearer view of the relationship between the percentage of smoking population and the rate of lung cancer patients in each state, we bring the two previous graphs together.
+
 ```{r chunk11}
 ```
 
 As it appears in the above graph, we see that the states with higher percentage of smokers, in general, have higher number of lung cancer patients. This leads us to start to believe that there might be a positive correlation between the two factors.
 
 To check the assumption we made after looking at the previous graph, we plot a linear regression model using the two factors.
+
 ```{r chunk12}
 ```
 
@@ -97,8 +102,10 @@ Now that we have investigated the relationship between smoking cigarettes and lu
 ```
 
 ## Visual Analysis
+
 Firstly, we look at the factor of one's race and it's role in inducing lung cancer in individuals. 
 The following barchart illustrates the number of lung cancer patients per 100,000 people by race as well as gender.
+
 ```{r chunk16}
 ```
 
