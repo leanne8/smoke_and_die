@@ -12,6 +12,7 @@ library(ggplot2)
 read_chunk("../code/analysis.R")
 read_chunk("../code/download.R")
 read_chunk("../code/cleaning.R")
+read_chunk("../code/exportimages.R")
 ```
 
 The causal relation between cigarette smoking and lung cancer has been a field of wide interest and extensive research for many organizations and individuals. In this particular project, we plan to establish the relationship between cigarette smoking and lung cancer. 
