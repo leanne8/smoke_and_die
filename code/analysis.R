@@ -48,13 +48,13 @@ barplot(sort(lung_cancer_perc),
 ## ---- chunk11 ----
 ggplot(smoke_cancer_cdf) +
   geom_point(aes(x = names(smoker_perc), 
-                 y = smoke_cancer_cdf$smokers..., col = "red")) +
+                 y = smoke_cancer_cdf$smokers..., col = "#AA3939")) +
   geom_line(aes(x = names(smoker_perc), 
-                y = smoke_cancer_cdf$smokers..., col = "red", group = 1)) +
+                y = smoke_cancer_cdf$smokers..., col = "#AA3939", group = 1)) +
   geom_point(aes(x = names(smoker_perc), 
-                 y = smoke_cancer_cdf$cancer... * 1000, col = "green")) +
+                 y = smoke_cancer_cdf$cancer... * 1000, col = "#73DB1D")) +
   geom_line(aes(x = names(smoker_perc), 
-                y = smoke_cancer_cdf$cancer... * 1000, col = "green", group = 2)) +
+                y = smoke_cancer_cdf$cancer... * 1000, col = "#73DB1D", group = 2)) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
   scale_color_manual(values = c("#AA3939", "#73DB1D"), name = "type", 
                      labels = c("lung cancer patients per 100000", "percentage of smokers")) +
